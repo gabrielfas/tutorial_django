@@ -1,17 +1,13 @@
-<html>
-    <head>
-        <title>Tutorial Django</title>
-    </head>
-    <body>
-        <div>
-            <h1>Hello</h1>
-            <p>Whats up!</p>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="post">
+            <div class="date">
+                {{ post.published_date }}
+            </div>
+            <h1><a href="">{{ post.title }}</a></h1>
+            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-        <div>
-            <h2><a href="https://github.com/gabrielfas/tutorial_django" target="_blank">Meu github</a></h2>
-        </div>
-        <div>
-            <h3>É noiz</h3>
-        </div>
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
